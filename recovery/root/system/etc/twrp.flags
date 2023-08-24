@@ -7,8 +7,9 @@ odm	      	/odm	       	ext4								            flags=display="ODM";logical;
 
 # Symlinked partitions
 /system_image	  emmc		/dev/block/dm-0				                    flags=backup=1;flashimg=1;display="System Image";
-/vendor_image 	  emmc		/dev/block/dm-5					                flags=backup=1;flashimg=1;display="Vendor Image";
-/product_image	  emmc		/dev/block/dm-6					                flags=backup=1;flashimg=1;display="Product Image";
+/system_ext     emmc    /dev/block/dm-1                           flags=display=system_ext
+/vendor_image 	  emmc		/dev/block/by-name/vendor					      flags=backup=1;flashimg=1;display="Vendor Image";
+/product_image	  emmc		/dev/block/by-name/product					    flags=backup=1;flashimg=1;display="Product Image";
 /odm_image		  emmc		/dev/block/dm-3					                flags=backup=1;flashimg=1;display="ODM Image";artitions
 
 
