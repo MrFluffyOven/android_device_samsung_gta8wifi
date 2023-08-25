@@ -19,7 +19,7 @@ odm	      	/odm	       	ext4								            flags=display="ODM";logical;
 /misc          emmc        /dev/block/by-name/misc
 /cache         ext4        /dev/block/by-name/cache                      flags=backup=1;display="Cache"
 /metadata      ext4        /dev/block/by-name/metadata                   flags=backup=1;display="Metadata"
-/userdata      f2fs        /dev/block/by-name/data                       flags=display=Data;wipeingui
+/data          f2fs        /dev/block/by-name/userdata
 
 # Removable storage
 /external_sd   auto        /dev/block/mmcblk1p1    /dev/block/mmcblk1    flags=display="Micro SD card";storage;wipeingui;removable
