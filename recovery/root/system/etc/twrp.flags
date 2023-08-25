@@ -23,4 +23,4 @@ odm	      	/odm	       	ext4								            flags=display="ODM";logical;
 
 # Removable storage
 /external_sd   auto        /dev/block/mmcblk1p1    /dev/block/mmcblk1    flags=display="Micro SD card";storage;wipeingui;removable
-/usb-otg       vfat        /dev/block/sda1         /dev/block/sda        flags=display="USB-OTG";storage;wipeingui;removable
+/usb-otg       auto        /dev/block/sda1         /dev/block/sda        flags=display="USB-OTG";storage;wipeingui;removable
