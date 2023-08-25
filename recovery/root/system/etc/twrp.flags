@@ -10,7 +10,7 @@ odm	      	/odm	       	ext4								            flags=display="ODM";logical;
 /system_ext       emmc      /dev/block/dm-1                                 flags=display=system_ext
 /vendor_image 	  emmc		/dev/block/by-name/vendor					      flags=backup=1;flashimg=1;display="Vendor";
 /product_image	  emmc		/dev/block/by-name/product					    flags=backup=1;flashimg=1;display="Product";
-/odm_image		  emmc		/dev/block/dm-3					                flags=backup=1;flashimg=1;display="ODM Image";artitions
+/odm_image		  emmc		/dev/block/dm-3					                flags=backup=1;flashimg=1;display="ODM Image";
 
 
 # Physical partitions
