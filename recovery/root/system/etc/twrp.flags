@@ -1,4 +1,4 @@
-# Logical p# Logical partitions
+# Logical partitions
 system     	/system		    ext4								            flags=display="System";logical;
 system_ext  /system_ext     ext4                                            flags=display="System_ext";logical;
 vendor	    /vendor		    ext4								            flags=display="Vendor";logical;
