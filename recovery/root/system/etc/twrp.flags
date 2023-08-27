@@ -1,8 +1,10 @@
+# mount point	fstype		device			device2				flags
 # Logical partitions
-system     	/system		    ext4								            flags=display="System";logical;
-system_ext  /system_ext     ext4                                            flags=display="System_ext";logical;
-vendor	    /vendor		    ext4								            flags=display="Vendor";logical;
-product    	/product    	ext4								            flags=display="Product";logical;
+system		/system		ext4							wait,logical,first_stage_mount
+system		/system		f2fs							wait,logical,first_stage_mount
+vendor		/vendor		ext4							wait,logical,first_stage_mount
+product		/product	ext4							wait,logical,first_stage_mount
+system_ext  /system_ext     ext4      wait,logical,first_stage_mount
 
 # Symlinked partitions
 /system_image	  emmc		/dev/block/dm-4				                    flags=backup=1;flashimg=1;display="System Image"
