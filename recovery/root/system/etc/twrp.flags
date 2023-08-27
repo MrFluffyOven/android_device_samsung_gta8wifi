@@ -5,10 +5,10 @@ vendor	    /vendor		    ext4								            flags=display="Vendor";logical;
 product    	/product    	ext4								            flags=display="Product";logical;
 
 # Symlinked partitions
-/system_image	  emmc		/dev/block/dm-4				                    flags=backup=1;display="System Image";flashimg=1;
+/system_image	  emmc		/dev/block/dm-4				                    flags=backup=1;flashimg=1display="System Image";
 /system_ext       emmc      /dev/block/dm-1                                 flags=display=system_ext
-/vendor_image 	  emmc		/dev/block/by-name/vendor					      flags=backup=1;display="Vendor";flashimg=1;
-/product_image	  emmc		/dev/block/by-name/product					    flags=backup=1;display="Product";flashimg=1;
+/vendor_image 	  emmc		/dev/block/by-name/vendor					      flags=backup=1;flashimg=1;display="Vendor";
+/product_image	  emmc		/dev/block/by-name/product					    flags=backup=1;flashimg=1;display="Product";
 
 
 # Physical partitions
