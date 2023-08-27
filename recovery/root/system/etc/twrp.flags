@@ -7,10 +7,10 @@ product		/product	ext4							wait,logical,first_stage_mount
 system_ext  /system_ext     ext4      wait,logical,first_stage_mount
 
 # Symlinked partitions
-/system_image	  emmc		/dev/block/dm-4				                    flags=backup=1;flashimg=1;display="System Image"
+/system_image	  emmc		/dev/block/dm-0				                    flags=backup=1;flashimg=1;display="System Image"
 /system_ext       emmc      /dev/block/dm-1                                 flags=display="System_Ext"
-/vendor_image 	  emmc		/dev/block/dm-5				      flags=backup=1;flashimg=1;display="Vendor"
-/product_image	  emmc		/dev/block/dm-6					    flags=backup=1;flashimg=1;display="Product"
+/vendor_image 	  emmc		/dev/block/dm-2				      flags=backup=1;flashimg=1;display="Vendor"
+/product_image	  emmc		/dev/block/dm-3					    flags=backup=1;flashimg=1;display="Product"
 
 
 # Physical partitions
