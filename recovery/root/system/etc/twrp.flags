@@ -7,8 +7,8 @@ product    	/product    	ext4								            flags=display="Product";logical
 # Symlinked partitions
 /system_image	  emmc		/dev/block/dm-4				                    flags=backup=1;flashimg=1;display="System Image"
 /system_ext       emmc      /dev/block/dm-1                                 flags=display="System_Ext"
-/vendor_image 	  emmc		/dev/block/by-name/vendor					      flags=backup=1;flashimg=1;display="Vendor"
-/product_image	  emmc		/dev/block/by-name/product					    flags=backup=1;flashimg=1;display="Product"
+/vendor_image 	  emmc		/dev/block/dm-5				      flags=backup=1;flashimg=1;display="Vendor"
+/product_image	  emmc		/dev/block/dm-6					    flags=backup=1;flashimg=1;display="Product"
 
 
 # Physical partitions
