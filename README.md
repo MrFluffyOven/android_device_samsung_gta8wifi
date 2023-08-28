@@ -1,4 +1,4 @@
-## Recovery Device Tree for the Samsung Galaxy A12 (MTK)
+## Recovery Device Tree for the Samsung Galaxy Tab A8 Wifi
 
 ## How-to compile it:
 
@@ -6,13 +6,14 @@
 $ mkdir tw; cd tw
 
 # Init repo
-$ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
+$ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 
-# Clone a12 repo
-$ git clone https://github.com/MrFluffyOven/android_device_samsung_a12_project_r -b main device/samsung/a12
+# Clone gta8wifi repo
+$ git clone 
 
-# Clone a12 kernel
-$ git clone https://github.com/MrFluffyOven/device_samsung_kernel_a12 kernel/samsung/a12
+# Clone gta8wifi kernel
+$ git clone 
+kernel/samsung/gta8wifi
 
 # Sync
 $ repo sync --no-repo-verify -c --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune -j`nproc`
