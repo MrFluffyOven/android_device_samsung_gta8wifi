@@ -19,7 +19,7 @@ kernel/samsung/gta8wifi
 $ repo sync --no-repo-verify -c --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune -j`nproc`
 
 # Build
-$ source build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_a12-eng; mka recoveryimage
+$ source build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_gta8wifi-eng; mka recoveryimage
 
 # Disable File Based Encryption (FBE) after installing TWRP.
 $ Boot TWRP; format DATA partition; start TWRP SHELL; execute: multidisabler.
@@ -28,5 +28,5 @@ Your DATA partition will be secured against re-encryption.
 
 Blobs version:
 > Kernel base: Compiled from source.
-> Ramdisk, DTB, DTBO base: A125FXXS3CWE1
+> Ramdisk, DTB, DTBO base: 
 
