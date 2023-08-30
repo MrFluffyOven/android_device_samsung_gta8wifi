@@ -20,7 +20,7 @@ kernel/samsung/gta8wifi
 Locate the 7z file in the tw file in tw/kernel/samsung/gta8wifi/tools/lib64, and "Extract Here"
 
 # Sync
-$ repo sync --no-repo-verify -c --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune -j`nproc`
+$ repo sync
 
 # Build
 $ source build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_gta8wifi-eng; mka recoveryimage
