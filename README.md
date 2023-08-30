@@ -19,6 +19,9 @@ chmod a+rx ~/.bin/repo
 # Init repo
 $ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 
+# Sync
+$ repo sync
+
 # Clone gta8wifi repo
 $ git clone https://github.com/MrFluffyOven/android_device_samsung_gta8wifi.git device/samsung/gta8wifi
 
@@ -31,9 +34,6 @@ $ sudo chown -R (your linux username) kernel
 
 # Unzip 7z File
 Locate the 7z file in the tw file in tw/kernel/samsung/gta8wifi/tools/lib64, and "Extract Here"
-
-# Sync
-$ repo sync
 
 # Build
 $ source build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_gta8wifi-eng; mka recoveryimage
