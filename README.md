@@ -9,7 +9,7 @@ $ mkdir tw; cd tw
 $ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
 
 # Clone gta8wifi repo
-$ git clone https://github.com/MrFluffyOven/android_device_samsung_gta8wifi_classic.git
+$ git clone https://github.com/MrFluffyOven/android_device_samsung_gta8wifi.git
 
 # Clone gta8wifi kernel
 $ git clone https://github.com/MrFluffyOven/android_device_samsung_kernel_x200.git
