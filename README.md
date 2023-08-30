@@ -17,7 +17,7 @@ $ git clone https://github.com/MrFluffyOven/android_device_samsung_kernel_x200.g
 kernel/samsung/gta8wifi
 
 # Unzip 7z File
-Locate the 7z file in the tw file in tw/kernel/samsung/gta8wifi, and "Extract Here"
+Locate the 7z file in the tw file in tw/kernel/samsung/gta8wifi/tools/lib64, and "Extract Here"
 
 # Sync
 $ repo sync --no-repo-verify -c --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune -j`nproc`
