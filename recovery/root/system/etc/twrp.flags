@@ -6,18 +6,18 @@ vendor		/vendor		ext4							wait,logical,first_stage_mount
 product		/product	ext4							wait,logical,first_stage_mount
 
 # Symlinked partitions
-/system_image	  emmc		/dev/block/dm-0				                    flags=backup=1;flashimg=1;display="System Image"
+/system_image	  emmc		/dev/block/dm-0				                    flags=backup=1;wipingui;flashimg=1;display="System Image"
 /system_ext       emmc      /dev/block/dm-1                                 flags=display="System_Ext"
-/vendor_image 	  emmc		/dev/block/dm-2				      flags=backup=1;flashimg=1;display="Vendor"
-/product_image	  emmc		/dev/block/dm-3					    flags=backup=1;flashimg=1;display="Product"
+/vendor_image 	  emmc		/dev/block/dm-2				      flags=backup=1;wipingui;flashimg=1;display="Vendor"
+/product_image	  emmc		/dev/block/dm-3					    flags=backup=1;wipingii;flashimg=1;display="Product"
 
 
 # Physical partitions
 /boot          emmc        /dev/block/by-name/boot                       flags=backup=1;display="Boot";flashimg=1
-/recovery      emmc        /dev/block/by-name/recovery                   flags=backup=1;display="Recovery";flashimg=1
+/recovery      emmc        /dev/block/by-name/recovery                   flags=backup=1;wipingui;display="Recovery";flashimg=1
 /misc          emmc        /dev/block/by-name/misc
-/cache         ext4        /dev/block/by-name/cache                      flags=backup=1;display="Cache"
-/metadata      ext4        /dev/block/by-name/metadata                   flags=backup=1;display="Metadata"
+/cache         ext4        /dev/block/by-name/cache                      flags=backup=1;wipingui;display="Cache"
+/metadata      ext4        /dev/block/by-name/metadata                   flags=backup=1;wipingui;display="Metadata"
 /data          f2fs        /dev/block/by-name/userdata
 
 # Removable storage
