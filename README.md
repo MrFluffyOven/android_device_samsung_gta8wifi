@@ -1,5 +1,5 @@
 # Android device tree for samsung SM-X200 (gta8wifi)
-# This device tree is still being worked on, things might change.
+ This device tree is still being worked on, things might change.
 ## Recovery Device Tree for the Samsung Galaxy Tab A8 Wifi
 
 ## How-to compile it:
