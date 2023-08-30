@@ -1,3 +1,4 @@
+# Android device tree for samsung SM-X200 (gta8wifi)
 ## Recovery Device Tree for the Samsung Galaxy Tab A8 Wifi
 
 ## How-to compile it:
@@ -15,6 +16,9 @@ $ git clone https://github.com/MrFluffyOven/android_device_samsung_gta8wifi.git 
 $ git clone https://github.com/MrFluffyOven/android_device_samsung_kernel_x200.git
 kernel/samsung/gta8wifi
 
+# Unzip 7z File
+Locate the 7z file in the tw file in tw/kernel/samsung/gta8wifi, and "Extract Here"
+
 # Sync
 $ repo sync --no-repo-verify -c --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune -j`nproc`
 
@@ -28,5 +32,4 @@ Your DATA partition will be secured against re-encryption.
 
 Blobs version:
 > Kernel base: Compiled from source.
-> Ramdisk, DTB, DTBO base: 
-
+> Ramdisk, DTB, DTBO base: X200XXS3CWG2
