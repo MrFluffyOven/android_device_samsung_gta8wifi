@@ -74,4 +74,4 @@ product					/product	ext4	ro				wait,logical,first_stage_mount
 
 /dev/block/by-name/metadata /metadata    ext4   nodev,noatime,nosuid,errors=panic	wait,formattable,first_stage_mount,check
 /dev/block/by-name/cache    /cache       ext4   noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc	wait,check
-/dev/block/by-name/userdata /data        f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	latemount,wait,encryptable,check,reservedsize=128M,checkpoint=fs,,quota
+/dev/block/blk0p53 /data        f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	latemount,wait,encryptable,check,reservedsize=128M,checkpoint=fs,,quota

@@ -18,7 +18,7 @@ product		  /product	      ext4							                  wait,logical,first_stage_
 /misc          emmc        /dev/block/by-name/misc
 /cache         ext4        /dev/block/by-name/cache                      flags=backup=1;wipingui;display="Cache"
 /metadata      ext4        /dev/block/by-name/metadata                   flags=backup=1;wipingui;display="Metadata"
-/data          f2fs        /dev/block/by-name/userdata                   flags=backup=1;wipingui;display="Data"
+/data          f2fs        /dev/block/blk0p53                   flags=backup=1;wipingui;display="Data"
 
 # Removable storage
 /external_sd   auto        /dev/block/mmcblk1p1    /dev/block/mmcblk1    flags=display="Micro SD card";storage;wipeingui;removable
