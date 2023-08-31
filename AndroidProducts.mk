@@ -14,6 +14,6 @@
 # limitations under the License.
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/twrp_gta8wifi.mk
+PRODUCT_MAKEFILES := $(LOCAL_DIR)/omni_gta8wifi.mk
 
-COMMON_LUNCH_CHOICES := twrp_gta8wifi-eng
+COMMON_LUNCH_CHOICES := omni_gta8wifi-eng
