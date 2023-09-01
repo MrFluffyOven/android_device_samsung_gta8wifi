@@ -32,6 +32,9 @@ kernel/samsung/gta8wifi
 # Make yourself owner of the kernel
 $ sudo chown -R (your linux username) kernel
 
+# Make the Kernel RWX
+$ chmod 777 -R kernel
+
 # Unzip 7z File
 Locate the 7z file in the tw file in tw/kernel/samsung/gta8wifi/tools/lib64, and "Extract Here"
 
