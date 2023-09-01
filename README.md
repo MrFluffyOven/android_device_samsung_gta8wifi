@@ -26,7 +26,7 @@ $ repo sync
 $ git clone https://github.com/MrFluffyOven/android_device_samsung_gta8wifi.git -b twrp-12.1 device/samsung/gta8wifi
 
 # Clone gta8wifi kernel
-$ git clone https://github.com/MrFluffyOven/android_device_samsung_kernel_x200.git
+$ git clone https://github.com/MrFluffyOven/android_device_samsung_kernel_x200.git -b twrp-12.1
 kernel/samsung/gta8wifi
 
 # Make yourself owner of the kernel
