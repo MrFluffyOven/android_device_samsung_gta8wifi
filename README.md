@@ -17,16 +17,16 @@ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
 chmod a+rx ~/.bin/repo
 
 # Init repo
-$ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
+$ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
 
 # Sync
 $ repo sync
 
 # Clone gta8wifi repo
-$ git clone https://github.com/MrFluffyOven/android_device_samsung_gta8wifi.git device/samsung/gta8wifi
+$ git clone https://github.com/MrFluffyOven/android_device_samsung_gta8wifi.git -b twrp-9.0 device/samsung/gta8wifi
 
 # Clone gta8wifi kernel
-$ git clone https://github.com/MrFluffyOven/android_device_samsung_kernel_x200.git
+$ git clone https://github.com/MrFluffyOven/android_device_samsung_kernel_x200.git -b twrp-12.1
 kernel/samsung/gta8wifi
 
 # Make yourself owner of the kernel
