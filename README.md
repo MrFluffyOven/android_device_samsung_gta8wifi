@@ -23,7 +23,7 @@ $ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manif
 $ repo sync
 
 # Clone gta8wifi repo
-$ git clone https://github.com/MrFluffyOven/android_device_samsung_gta8wifi.git device/samsung/gta8wifi
+$ git clone https://github.com/MrFluffyOven/android_device_samsung_gta8wifi.git -b twrp-12.1 device/samsung/gta8wifi
 
 # Clone gta8wifi kernel
 $ git clone https://github.com/MrFluffyOven/android_device_samsung_kernel_x200.git
