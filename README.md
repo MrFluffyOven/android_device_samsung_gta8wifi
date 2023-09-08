@@ -26,7 +26,7 @@ $ repo sync
 $ git clone https://github.com/MrFluffyOven/android_device_samsung_gta8wifi.git -b twrp-12.1 device/samsung/gta8wifi
 
 # Clone gta8wifi kernel
-$ git clone https://github.com/MrFluffyOven/android_device_samsung_kernel_x200.git -b twrp-12.1
+$ git clone https://gitlab.com/MrFluffyOven/android_device_samsung_kernel_x200.git -b twrp-12.1
 kernel/samsung/gta8wifi
 
 # Make yourself owner of the kernel
@@ -34,9 +34,6 @@ $ sudo chown -R (your linux username) kernel
 
 # Make the Kernel RWX
 $ chmod 777 -R kernel
-
-# Unzip 7z File
-Locate the 7z file in the tw file in tw/kernel/samsung/gta8wifi/tools/lib64, and "Extract Here"
 
 # Build
 $ source build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_gta8wifi-eng; mka recoveryimage
