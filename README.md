@@ -1,5 +1,9 @@
 # Android device tree for samsung SM-X200 (gta8wifi)
  This device tree is still being worked on, things might change.
+
+## Update Details
+Kernel is now fully unzipped! files are ready to go, this is due to gitlab having no limit on file size.
+
 ## Recovery Device Tree for the Samsung Galaxy Tab A8 Wifi
 
 ## How-to compile it:
