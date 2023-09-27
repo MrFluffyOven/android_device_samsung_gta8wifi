@@ -6,10 +6,10 @@ vendor         /vendor     ext4    display="Vendor"         logical,first_stage_
 product        /product    ext4    display="Product"        logical,first_stage_mount
 
 # Symlinked
-/system_image   ext4    /dev/block/mapper/system        display="System Image";backup=0;flashimg=1;
-/system_ext     ext4    /dev/block/mapper/system_ext    display="System Ext"
-/product_image  ext4    /dev/block/mapper/product       display="Product Image";backup=0;flashimg=1;
-/vendor_image   ext4    /dev/block/mapper/vendor        display="Vendor Image";backup=0;flashimg=1;
+/system_image   ext4    /dev/block/mapper/system        flags=display="System Image";backup=0;flashimg=1;
+/system_ext     ext4    /dev/block/mapper/system_ext    flags=display="System Ext"
+/product_image  ext4    /dev/block/mapper/product       flags=display="Product Image";backup=0;flashimg=1;
+/vendor_image   ext4    /dev/block/mapper/vendor        flags=display="Vendor Image";backup=0;flashimg=1;
 
 # Physical partitions
 /boot          emmc        /dev/block/by-name/boot                       flags=backup=1;display="Boot";flashimg=1
