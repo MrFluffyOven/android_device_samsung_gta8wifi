@@ -1,19 +1,38 @@
-## Recovery Device Tree for the Samsung Galaxy Tab A8 [SM-X200]
+# Android device tree for samsung SM-X200 (gta8wifi)
+ This device tree is still being worked on, things might change.
+## Recovery Device Tree for the Samsung Galaxy Tab A8 Wifi
+
+## Getting Started ##
+To get started with AOSP sources to build TWRP, you'll need to get familiar
+with [Git and Repo](https://source.android.com/source/using-repo.html).
+
 
 ## How-to compile it:
 
+# Create dirs
+    $ mkdir tw; cd tw
 
-To initialize your local repository using the AOSP trees to build TWRP, use a command like this:
+# Pre init
+    $ mkdir -p ~/.bin
 
-```sh
-repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
-```
-Then to sync up:
+    PATH="${HOME}/.bin:${PATH}"
 
-```sh
-repo sync
-```
-Then to build:
+    curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
 
-```sh
-export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_gta8wifi-eng; mka recoveryimage
+    chmod a+rx ~/.bin/repo
+
+# Init repo
+    $ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
+
+# Sync
+    $ repo sync
+
+# Clone gta8wifi repo
+    $ git clone https://gitlab.com/MrFluffyOven/android_device_samsung_gta8wifi.git -b Magendanz device/samsung/gta8wifi
+
+# Build
+    $ . build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_gta8wifi-eng; mka recoveryimage
+
+# Disable File Based Encryption (FBE) after installing TWRP.
+    $ Boot TWRP; format DATA partition; start TWRP SHELL; execute: multidisabler.
+Your DATA partition will be secured against re-encryption.
