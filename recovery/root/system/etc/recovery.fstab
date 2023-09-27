@@ -1,48 +1,5 @@
-# Copyright (c) 2018-2019 The Linux Foundation. All rights reserved.
-#
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted (subject to the limitations in the
-# disclaimer below) provided that the following conditions are met:
-#
-#    * Redistributions of source code must retain the above copyright
-#      notice, this list of conditions and the following disclaimer.
-#
-#    * Redistributions in binary form must reproduce the above
-#      copyright notice, this list of conditions and the following
-#      disclaimer in the documentation and/or other materials provided
-#      with the distribution.
-#
-#    * Neither the name of The Linux Foundation nor the names of its
-#      contributors may be used to endorse or promote products derived
-#      from this software without specific prior written permission.
-#
-# NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE
-# GRANTED BY THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
-# HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
-# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-# IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-# ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
-# GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
-# IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
-# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-# Android fstab file.
-# The filesystem that contains the filesystem checker binary (typically /system) cannot
-# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
-
-#<src>					<mnt_point>	<type>	<mnt_flags and options>		<fs_mgr_flags>
-system					/system		ext4	ro				wait,logical,first_stage_mount
-system_ext		/system_ext	ext4	ro				wait,logical,first_stage_mount
-vendor					/vendor		ext4	ro				wait,logical,first_stage_mount
-product					/product	ext4	ro				wait,logical,first_stage_mount
-
-#<src>                                    <mnt_point>    <type>    <mnt_flags and options>    <fs_mgr_flags>
-/dev/block/mmcblk0boot0                  /spl                emmc    defaults    defaults
-/dev/block/mmcblk0boot1                  /spl_bk             emmc    defaults    defaults
+/dev/block/mmcblk0boot0                                                        /spl                emmc    defaults    defaults
+/dev/block/mmcblk0boot1                                                        /spl_bk             emmc    defaults    defaults
 /dev/block/by-name/uboot                 /uboot              emmc    defaults    defaults
 /dev/block/by-name/sml                   /sml                emmc    defaults    defaults
 /dev/block/by-name/trustos               /tos                emmc    defaults    defaults
@@ -54,7 +11,7 @@ product					/product	ext4	ro				wait,logical,first_stage_mount
 
 /dev/block/by-name/l_ldsp                /ltedsp             emmc    defaults    defaults
 /dev/block/by-name/l_gdsp                /ltegdsp            emmc    defaults    defaults
-/dev/block/by-name/l_agdsp               /lteagdsp           emmc    defaults    defaults
+/dev/block/by-name/l_agdsp               /lteagdsp            emmc    defaults   defaults
 /dev/block/by-name/l_cdsp                /ltecdsp            emmc    defaults    defaults
 /dev/block/by-name/l_modem               /ltemodem           emmc    defaults    defaults
 /dev/block/by-name/l_fixnv1              /ltefixnv1          emmc    defaults    defaults
@@ -71,7 +28,31 @@ product					/product	ext4	ro				wait,logical,first_stage_mount
 /dev/block/by-name/logo                  /logo               emmc    defaults    defaults
 /dev/block/by-name/fbootlogo             /fbootlogo          emmc    defaults    defaults
 
+system /system ext4 ro,barrier=1 wait,avb=vbmeta_system,logical,first_stage_mount
+system_ext /system_ext ext4 ro,barrier=1 wait,avb=vbmeta_system_ext,logical,first_stage_mount
+vendor /vendor ext4 ro,barrier=1 wait,avb=vbmeta_vendor,logical,first_stage_mount
+product /product ext4 ro,barrier=1 wait,avb=vbmeta,logical,first_stage_mount
+/dev/block/by-name/metadata /metadata    ext4 nodev,noatime,nosuid,errors=panic wait,formattable,first_stage_mount,check
 
-/dev/block/by-name/metadata /metadata    ext4   nodev,noatime,nosuid,errors=panic	wait,formattable,first_stage_mount,check
-/dev/block/by-name/cache    /cache       ext4   noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc	wait,check
-/dev/block/blk0p53 /data        f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	latemount,wait,encryptable,check,reservedsize=128M,checkpoint=fs,,quota
+/dev/block/by-name/socko                 /socko              ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc    wait,check
+/dev/block/by-name/odmko                 /odmko              ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc    wait,check
+
+/dev/block/by-name/cache                 /cache              ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc    wait,check
+/dev/block/by-name/prodnv                /mnt/vendor         ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc     wait,check
+
+/dev/block/by-name/userdata	/data	f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678	recoveryonly
+/dev/block/mmcblk1p1                     /sdcard             sdfat    defaults    defaults
+/dev/block/by-name/sec_efs               /efs                ext4    defaults    recoveryonly
+/dev/block/by-name/sec_efs               /sec_efs            ext4    defaults    recoveryonly
+
+/dev/block/by-name/prism       /prism          ext4        defaults                  recoveryonly
+/dev/block/by-name/optics      /optics         ext4        defaults                  recoveryonly
+
+
+
+
+
+#Auto-generated code by FOTA Build Portal
+/dev/block/by-name/l_deltanv	/deltanv	emmc	default	recoveryonly
+/dev/block/by-name/l_fixnv2	/nvitem	emmc	default	recoveryonly
+/dev/block/by-name/pm_sys	/qogirl6_m3l_cm4	emmc	default	recoveryonly
