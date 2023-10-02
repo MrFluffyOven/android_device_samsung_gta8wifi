@@ -28,8 +28,8 @@
 /dev/block/by-name/logo                  /logo               emmc    defaults    defaults
 /dev/block/by-name/fbootlogo             /fbootlogo          emmc    defaults    defaults
 
-/dev/block/by-name/system                /system_root        ext4    ro,barrier=1    wait
-/dev/block/by-name/vendor                /vendor             ext4    ro,barrier=1    wait
+/dev/block/by-name/system                /system_root        ext4    ro,barrier=0    wait
+/dev/block/by-name/vendor                /vendor             ext4    ro,barrier=0    wait
 /dev/block/by-name/prodnv                /mnt/vendor         ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc     wait,check
 /dev/block/by-name/cache                 /cache              ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc    wait,check
 
