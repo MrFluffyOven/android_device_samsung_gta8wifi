@@ -1,138 +1,76 @@
-# device/sprd/mpool/module/audio/main.ueventd.rc
-/dev/apipe-pcm          0660     system      audio
-/dev/apipe-cmd-in       0660     system      audio
-/dev/apipe-cmd-out      0660     system      audio
-# device/sprd/mpool/module/audio/msoc/sharkl5Pro/sharkl5Pro.ueventd.rc
-/sys/devices/platform/audiocp_boot agdsp 0660 audioserver audio
-/sys/devices/platform/audiocp_boot ldinfo 0660 audioserver audio
-/sys/devices/platform/audiocp_boot start 0660 audioserver audio
-/sys/devices/platform/audiocp_boot status 0660 audioserver audio
-/sys/devices/platform/audiocp_boot stop 0660 audioserver audio
-/dev/block/by-name/l_agdsp 0660 audioserver audio
-/dev/audio_dsp* 666 audioserver audio
-/dev/audio_pipe* 660 audioserver audio
-# device/sprd/mpool/module/display/sr/main.ueventd.rc
-/dev/block/by-name/logo          0660     system      system
-# device/sprd/mpool/module/modem/msoc/sharkl5Pro/sharkl5Pro.ueventd.rc
-/dev/block/by-name/l_*       0660     system      system
-/dev/block/by-name/pm_sys*       0660     system      system
-# device/sprd/mpool/module/vdsp/msoc/sharkl5Pro/sharkl5Pro.ueventd.rc
-/dev/vdsp* 660 cameraserver system
-# device/sprd/mpool/module/wcn/gnss/main.ueventd.rc
-/dev/data0_gnss         0666     system      system
-# device/sprd/mpool/module/ueventd/main.ueventd.rc
-/dev/sttygnss0          0660     system      system
-/dev/spipe_gnss0        0660     system      system
-/dev/spipe_gnss1        0660     system      system
-/dev/stime_pm           0660     system      system
-/dev/stime_ch           0660     system      system
+firmware_directories /etc/firmware/ /odm/firmware/ /vendor/firmware/ /firmware/image/
+uevent_socket_rcvbuf_size 16M
 
-/dev/slog_gnss          0660     system      system
-/dev/slog_wcn0          0660     system      system
-/dev/ttyS3              0660     system      system
-/dev/ttyS4              0660     system      system
-/dev/ttyS0              0660     system      system
-/dev/power_ctl          0660     system      system
-/dev/gnss_dbg           0660     system      system
-/dev/block/by-name/gnssmodem       0660     system      root
-/dev/fm                 0660     system      audio
-/dev/ttyM0              0660     bluetooth   net_bt_admin
-/dev/ttyM1              0660     bluetooth   net_bt_admin
-/dev/trusty-ipc-dev0    0660     system      system
-/dev/tshm		0660     system      system
-/dev/sttybt0            0660     bluetooth   net_bt_admin
-/dev/ttyBT0             0660     bluetooth   net_bt_admin
+subsystem graphics
+    devname uevent_devpath
+    dirname /dev/graphics
 
-/dev/trusty-ipc-dev0    0660     system      system
-/dev/stty_lte*          0660     radio       system
-/dev/slog_lte           0660     system      system
-/dev/slog_pm            0660     system      system
-/dev/slog_ch            0660     system      system
-/dev/sctl_pm            0660     system      system
-/dev/sctl_ch            0660     system      system
-/dev/sdiag_lte          0660     system      system
-/dev/spipe_lte*         0660     system      system
-/dev/sprd_time_sync     0660     system      system
-/dev/spipe_lte5         0660     radio      system
-/dev/spipe_lte4         0660     media       audio
-/dev/spipe_lte6         0660     media       audio
-/dev/spipe_lte9         0660     radio       radio
-/dev/spipe_lte14        0660     audioserver audio
-/dev/spipe_pm*          0666     system      system
-/dev/spipe_ch*          0666     system      system
-/dev/snv_lte            0660     system      system
+subsystem drm
+    devname uevent_devpath
+    dirname /dev/dri
 
-/dev/stty_nr*           0660     radio       system
-/dev/slog_nr            0660     system      system
-/dev/slog_phy           0660     system      system
-/dev/sdiag_nr           0660     system      system
-/dev/spipe_nr*          0660     system      system
-/dev/spipe_nr5          0660     radio      system
-/dev/spipe_nr4          0660     media       audio
-/dev/spipe_nr6          0660     media       audio
-/dev/spipe_nr9          0660     radio       radio
-/dev/spipe_nr14         0660     media       audio
-/dev/snv_nr		0660     system      system
-/dev/vser               0660     system      system
-/dev/ttyGS*             0660     system      system
+subsystem input
+    devname uevent_devpath
+    dirname /dev/input
 
-/dev/ion                0666     system      graphics
-/dev/gsp                0660     system      graphics
+subsystem sound
+    devname uevent_devpath
+    dirname /dev/snd
 
-/dev/mali0              0666     system      graphics
-/dev/pvr_sync           0666     system      graphics
-/dev/sprd_jpg           0666     system      camera
-/dev/sprd_jpg1          0660     system      camera
-/dev/sprd_vsp           0660     system      camera
-/dev/vpu_enc0           0660     system      camera
-/dev/vpu_enc1           0660     system      camera
-/dev/sprd_vpp           0660     system      camera
-/dev/sprd_vsp_enc       0660     system      camera
+# ueventd can only set permissions on device nodes and their associated
+# sysfs attributes, not on arbitrary paths.
+#
+# format for /dev rules: devname mode uid gid
+# format for /sys rules: nodename attr mode uid gid
+# shortcut: "mtd@NN" expands to "/dev/mtd/mtdNN"
 
-/dev/sprd_image         0660     system      camera
-/dev/sprd_isp           0660     system      camera
-/dev/sprd_sensor        0660     system      camera
-/dev/sprd_cpp           0660     system      camera
-/dev/sprd_fd            0660     system      camera
+/dev/null                 0666   root       root
+/dev/zero                 0666   root       root
+/dev/full                 0666   root       root
+/dev/ptmx                 0666   root       root
+/dev/tty                  0666   root       root
+/dev/random               0666   root       root
+/dev/urandom              0666   root       root
+# Make HW RNG readable by group system to let EntropyMixer read it.
+/dev/hw_random            0440   root       system
+/dev/ashmem*              0666   root       root
+/dev/binder               0666   root       root
+/dev/hwbinder             0666   root       root
+/dev/vndbinder            0666   root       root
 
-/sys/devices/system/cpu/cpu* /cpufreq/interactive/boost 0660 media system
-/sys/devices/system/cpu/cpu* /cpufreq/interactive/boostpulse 0660 system system
-/sys/devices/system/cpu/cpu* /cpufreq/interactive/boostpulse_duration 0660 system system
-/sys/devices/system/cpu/cpu* /cpufreq/interactive/timer_rate 0660 system system
-/sys/devices/system/cpu/cpu* /cpufreq/interactive/hispeed_freq 0660 system system
-/sys/devices/system/cpu/cpu* /cpufreq/interactive/target_loads 0660 system system
-/sys/devices/system/cpu/cpu* /cpufreq/interactive/above_hispeed_delay 0660 system system
-/sys/devices/system/cpu/cpu* /cpufreq/interactive/timer_slack 0660 system system
-/sys/devices/system/cpu/cpu* /cpufreq/interactive/min_sample_time 0660 system system
-/sys/devices/system/cpu/cpu* /cpufreq/interactive/io_is_busy 0660 system system
+/dev/pmsg0                0222   root       log
 
-/sys/devices/system/cpu/cpu* /cpufreq/scaling_governor 0664 system system
-/sys/devices/system/cpu/cpu* /cpufreq/scaling_setspeed 0660 system system
+# kms driver for drm based gpu
+/dev/dri/*                0666   root       graphics
 
-/dev/input/event*   0660     system      input
-/dev/iio:device1    0660     system      system
-/dev/map_user       0660     system      system
+# these should not be world writable
+/dev/uhid                 0660   uhid       uhid
+/dev/uinput               0660   uhid       uhid
+/dev/rtc0                 0640   system     system
+/dev/tty0                 0660   root       system
+/dev/graphics/*           0660   root       graphics
+/dev/input/*              0660   root       input
+/dev/v4l-touch*           0660   root       input
+/dev/snd/*                0660   system     audio
+/dev/bus/usb/*            0660   root       usb
+/dev/mtp_usb              0660   root       mtp
+/dev/usb_accessory        0660   root       usb
+/dev/tun                  0660   system     vpn
+# HS03 code for SR-SL6215-01-558 by shixuanxuan at 20210826 start
+/dev/power_on_alarm       0220   system     radio
+# HS03 code for SR-SL6215-01-558 by shixuanxuan at 20210826 end
 
-/dev/iio:device*    0660     system      system
-/sys/bus/iio/devices/trigger*    name    0660    system    system
-/sys/bus/iio/devices/iio:device*    /buffer/length    0660    system    system
-/sys/bus/iio/devices/iio:device*    /buffer/enable    0660    system    system
-/sys/bus/iio/devices/iio:device*    /trigger/current_trigger    0660    system    system
 
-/dev/rtc*           0660     system      system
+# CDMA radio interface MUX
+/dev/ppp                  0660   radio      vpn
 
-/dev/block/by-name/gnssmodem       0660     system      root
-/dev/block/by-name/gnssmodem_a     0660     system      root
-# device/sprd/mpool/module/ueventd/msoc/sharkl5Pro/mfeature/kernel/kernel4.14/kernel4.14.ueventd.rc
-/sys/devices/platform/soc/soc:aon/32100000.spi/spi_master/spi4/spi4.0/sc27xx-bltc*/leds/sc27xx:red hw_pattern 0660 system system
-/sys/devices/platform/soc/soc:aon/32100000.spi/spi_master/spi4/spi4.0/sc27xx-bltc*/leds/sc27xx:green hw_pattern 0660 system system
-/sys/devices/platform/soc/soc:aon/32100000.spi/spi_master/spi4/spi4.0/sc27xx-bltc*/leds/sc27xx:blue hw_pattern 0660 system system
-# device/sprd/mpool/module/ueventd/msoc/sharkl5Pro/sharkl5Pro.ueventd.rc
-/dev/block/by-name/miscdata       0660     system      system
-/dev/block/by-name/persist       0660     system      system
-/dev/block/by-name/sysdumpdb        0660     system     system
-/dev/block/by-name/pad        0660     system     system
-/dev/block/by-name/param	0660	root	system
+# sysfs properties
+/sys/devices/platform/trusty.*      trusty_version        0440  root   log
+/sys/devices/virtual/input/input*   enable      0660  root   input
+/sys/devices/virtual/input/input*   poll_delay  0660  root   input
+/sys/devices/virtual/usb_composite/*   enable      0664  root   system
+/sys/devices/system/cpu/cpu*   cpufreq/scaling_max_freq   0664  system system
+/sys/devices/system/cpu/cpu*   cpufreq/scaling_min_freq   0664  system system
 
 # Google FRP solution
 /dev/block/by-name/persistent    0660    system    system
