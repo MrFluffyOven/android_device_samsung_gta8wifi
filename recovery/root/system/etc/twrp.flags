@@ -18,6 +18,8 @@ product        /product    ext4    display="Product"        logical,first_stage_
 /cache         ext4        /dev/block/by-name/cache                      flags=backup=1;display="Cache"
 /metadata      ext4        /dev/block/by-name/metadata                   flags=backup=1;display="Metadata"
 /data          f2fs        /dev/block/by-name/userdata
+/vbmeta        emmc        /dev/block/by-name/vbmeta                     flags=backup=1;display="vbmeta"  
+/dtbo          emmc        /dev/block/by-name/dtbo                       flags=backup=1;display="dtbo"
 
 # Removable storage
 /external_sd   auto        /dev/block/mmcblk1p1    /dev/block/mmcblk1    flags=display="Micro SD card";storage;wipeingui;removable
