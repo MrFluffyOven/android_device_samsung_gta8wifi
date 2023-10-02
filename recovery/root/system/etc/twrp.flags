@@ -1,11 +1,11 @@
 
 # Logical partitions
-system         /system     ext4    display="System"
-system_ext     /system_ext ext4    display="System_EXT"
-vendor         /vendor     ext4    display="Vendor"
-product        /product    ext4    display="Product"
+system         /system     ext4    display="System";logical;
+system_ext     /system_ext ext4    display="System_EXT";logical;
+vendor         /vendor     ext4    display="Vendor";logical;
+product        /product    ext4    display="Product";logical;
 
-# Symlinked
+# Symlinked partitions
 /system_image   emmc    /dev/block/mapper/system        flags=display="System Image";backup=0;flashimg
 /system_ext_image     emmc    /dev/block/mapper/system_ext    flags=display="System Ext Image";backup=0;flashimg
 /product_image  emmc    /dev/block/mapper/product       flags=display="Product Image";backup=0;flashimg
