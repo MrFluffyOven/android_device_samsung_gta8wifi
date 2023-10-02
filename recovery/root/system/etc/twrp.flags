@@ -7,7 +7,7 @@ product        /product    ext4    display="Product"        logical,first_stage_
 
 # Symlinked
 /system_image   ext4    /dev/block/mapper/system        flags=display="System Image";backup=0;flashimg=1;
-/system_ext     ext4    /dev/block/mapper/system_ext    flags=display="System Ext"
+/system_ext_image     ext4    /dev/block/mapper/system_ext    flags=display="System Ext Image"
 /product_image  ext4    /dev/block/mapper/product       flags=display="Product Image";backup=0;flashimg=1;
 /vendor_image   ext4    /dev/block/mapper/vendor        flags=display="Vendor Image";backup=0;flashimg=1;
 
