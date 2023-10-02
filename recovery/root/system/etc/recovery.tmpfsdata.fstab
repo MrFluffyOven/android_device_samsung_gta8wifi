@@ -33,4 +33,4 @@
 /dev/block/by-name/prodnv                /mnt/vendor         ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc     wait,check
 /dev/block/by-name/cache                 /cache              ext4    noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc    wait,check
 
-/dev/block/mmcblk1p1                     /storage/sdcard0    vfat    defaults    defaults
+/external_sd   auto        /dev/block/mmcblk1p1    /dev/block/mmcblk1    vfat    defaults    defaults
