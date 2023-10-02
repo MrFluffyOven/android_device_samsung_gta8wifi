@@ -490,5 +490,5 @@ on property:ro.bootmode=factorytest
     start vendor.mlogservice
     trigger factorytest
 
-on property:ro.bootmode=factorytest && property:ro.debuggable=0
+on property:ro.bootmode=factorytest && property:ro.debuggable=1
     setprop sys.usb.config vser
