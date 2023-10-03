@@ -161,7 +161,6 @@ TW_THEME := portrait_hdpi
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/sprd_backlight/brightness"
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_EXTERNAL_STORAGE := true
-TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXCLUDE_TWRPAPP := true
 TW_INCLUDE_NTFS_3G := true
 TW_USE_NEW_MINADBD := true
