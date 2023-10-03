@@ -18,7 +18,3 @@ on late-fs
 
     # Mount RW partitions which need run fsck
     mount_all /system/etc/recovery.fstab --late
-
-    on boot
-    setprop ro.boot.vbmeta.avb_version 1.1
-    setprop ro.boot.avb_version 1.1
