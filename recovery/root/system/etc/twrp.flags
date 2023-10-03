@@ -1,0 +1,26 @@
+
+# Logical partitions
+system         /system     ext4    display="System";logical;
+system_ext     /system_ext ext4    display="System_EXT";logical;
+vendor         /vendor     ext4    display="Vendor";logical;
+product        /product    ext4    display="Product";logical;
+
+# Symlinked partitions
+/system_image   emmc    /dev/block/mapper/system        flags=display="System Image";backup=0;flashimg;
+/system_ext_image     emmc    /dev/block/mapper/system_ext    flags=display="System Ext Image";backup=0;flashimg;
+/product_image  emmc    /dev/block/mapper/product       flags=display="Product Image";backup=0;flashimg;
+/vendor_image   emmc    /dev/block/mapper/vendor        flags=display="Vendor Image";backup=0;flashimg;
+
+# Physical partitions
+/boot          emmc        /dev/block/by-name/boot                       flags=backup=1;display="Boot";flashimg
+/recovery      emmc        /dev/block/by-name/recovery                   flags=backup=1;display="Recovery";flashimg
+/misc          emmc        /dev/block/by-name/misc
+/cache         ext4        /dev/block/by-name/cache                      flags=backup=1;display="Cache"
+/metadata      ext4        /dev/block/by-name/metadata                   flags=backup=1;display="Metadata"
+/data          f2fs        /dev/block/by-name/userdata
+/vbmeta        emmc        /dev/block/by-name/vbmeta                     flags=backup=1;display="vbmeta"  
+/dtbo          emmc        /dev/block/by-name/dtbo                       flags=backup=1;display="dtbo";flashimg
+
+# Removable storage
+/external_sd   auto        /dev/block/mmcblk1p1    /dev/block/mmcblk1    flags=display="Micro SD card";storage;wipeingui;removable
+/usb-otg       vfat        /dev/block/sda1         /dev/block/sda        flags=display="USB-OTG";storage;wipeingui;removable
