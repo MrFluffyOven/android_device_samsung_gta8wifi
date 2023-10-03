@@ -1,0 +1,12 @@
+<manifest version="1.0" type="device">
+    <hal format="hidl">
+        <name>vendor.sprd.hardware.thermal</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <version>2.0</version>
+        <interface>
+            <name>IExtThermal</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</manifest>
