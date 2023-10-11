@@ -22,7 +22,7 @@ with [Git and Repo](https://source.android.com/source/using-repo.html).
     chmod a+rx ~/.bin/repo
 
 # Init repo
-    $ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
+    $ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
 
 # Sync
     $ repo sync
