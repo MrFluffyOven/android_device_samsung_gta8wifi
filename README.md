@@ -31,7 +31,7 @@ with [Git and Repo](https://source.android.com/source/using-repo.html).
     $ git clone https://gitlab.com/MrFluffyOven/android_device_samsung_gta8wifi.git -b twrp-11 device/samsung/gta8wifi
 
 # Build
-    $ . build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_gta8wifi-eng; mka recoveryimage
+    $ . build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_gta8wifi-eng; mka -j6 recoveryimage
 
 # Disable File Based Encryption (FBE) after installing TWRP.
     $ Boot TWRP; format DATA partition; start TWRP SHELL; execute: multidisabler.
