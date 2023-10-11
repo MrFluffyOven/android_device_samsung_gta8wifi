@@ -1,9 +1,9 @@
 
 # Logical partitions
-system         /system     ext4    display="System";wait,logical,first_stage_mount
-system_ext     /system_ext ext4    display="System_EXT";wait,logical,first_stage_mount
-vendor         /vendor     ext4    display="Vendor";wait,logical,first_stage_mount
-product        /product    ext4    display="Product";wait,logical,first_stage_mount
+system         /system     ext4    wait,logical,first_stage_mount
+system_ext     /system_ext ext4    wait,logical,first_stage_mount
+vendor         /vendor     ext4    wait,logical,first_stage_mount
+product        /product    ext4    wait,logical,first_stage_mount
 
 # Symlinked partitions
 /system_image   emmc    /dev/block/mapper/system        flags=display="System Image";backup=0;flashimg;
