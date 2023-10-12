@@ -28,7 +28,7 @@ with [Git and Repo](https://source.android.com/source/using-repo.html).
     $ repo sync
 
 # Clone gta8wifi repo
-    $ git clone https://gitlab.com/MrFluffyOven/android_device_samsung_gta8wifi.git -b twrp-11 device/samsung/gta8wifi
+    $ git clone https://gitlab.com/MrFluffyOven/android_device_samsung_gta8wifi.git -b classic-avb-f device/samsung/gta8wifi
 
 # Build
     $ . build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_gta8wifi-eng; mka -j6 recoveryimage
