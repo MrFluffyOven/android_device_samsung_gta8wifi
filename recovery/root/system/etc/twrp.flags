@@ -5,7 +5,6 @@ system_ext     /system_ext ext4    flags=display="System EXT"
 vendor         /vendor     ext4    flags=display="Vendor"
 product        /product    ext4    flags=display="Product"
 
-
 # Physical partitions
 /boot          emmc        /dev/block/by-name/boot                       flags=backup=1;display="Boot";flashimg
 /recovery      emmc        /dev/block/by-name/recovery                   flags=backup=1;display="Recovery";flashimg
