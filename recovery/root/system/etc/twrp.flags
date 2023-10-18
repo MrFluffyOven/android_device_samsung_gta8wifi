@@ -1,15 +1,10 @@
 
 # Logical partitions
-system         /system     ext4    wait,logical,first_stage_mount
-system_ext     /system_ext ext4    wait,logical,first_stage_mount
-vendor         /vendor     ext4    wait,logical,first_stage_mount
-product        /product    ext4    wait,logical,first_stage_mount
+system         /system     ext4    flags=display="System"
+system_ext     /system_ext ext4    flags=display="System EXT"
+vendor         /vendor     ext4    flags=display="Vendor"
+product        /product    ext4    flags=display="Product"
 
-# Symlinked partitions
-/system_image   emmc    /dev/block/mapper/system        flags=display="System Image";backup=1;flashimg=1;
-/system_ext     emmc    /dev/block/mapper/system_ext    flags=display="System EXT";backup=1;flashimg=1;
-/product_image  emmc    /dev/block/mapper/product       flags=display="Product Image";backup=1;flashimg=1;
-/vendor_image   emmc    /dev/block/mapper/vendor        flags=display="Vendor Image";backup=1;flashimg=1;
 
 # Physical partitions
 /boot          emmc        /dev/block/by-name/boot                       flags=backup=1;display="Boot";flashimg
