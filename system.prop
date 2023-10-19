@@ -8,5 +8,6 @@ ro.boot.bootdevice=7824900.sdhci
 ro.boot.dynamic_partitions=true
 ro.adb.secure=0
 ro.zygote.disable_gl_preload=true
+ro.hwui.use_vulkan=true
 
 sys.usb.controller=musb-hdrc.0.auto
