@@ -7,5 +7,6 @@ ro.product.system.model=SM-X200
 ro.boot.bootdevice=7824900.sdhci
 ro.boot.dynamic_partitions=true
 ro.adb.secure=0
-ro.opengles.version=196610
+ro.zygote.disable_gl_preload=true
+
 sys.usb.controller=musb-hdrc.0.auto
