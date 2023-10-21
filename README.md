@@ -10,10 +10,10 @@ with [Git and Repo](https://source.android.com/source/using-repo.html).
 ## How-to compile it:
 
 # Create dirs
-    $ mkdir tw; cd tw
+    mkdir tw; cd tw
 
 # Pre init
-    $ mkdir -p ~/.bin
+    mkdir -p ~/.bin
 
     PATH="${HOME}/.bin:${PATH}"
 
@@ -22,17 +22,17 @@ with [Git and Repo](https://source.android.com/source/using-repo.html).
     chmod a+rx ~/.bin/repo
 
 # Init repo
-    $ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
+    repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
 
 # Sync
-    $ repo sync
+    repo sync
 
 # Clone gta8wifi repo
-    $ git clone https://gitlab.com/MrFluffyOven/android_device_samsung_gta8wifi.git -b V4-T1 device/samsung/gta8wifi
+    git clone https://github.com/MrFluffyOven/android_device_samsung_gta8wifi.git -b twrp-beta-v4 device/samsung/gta8wifi
 
 # Build
-    $ . build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_gta8wifi-eng; mka -j6 recoveryimage
+    . build/envsetup.sh; export ALLOW_MISSING_DEPENDENCIES=true; lunch twrp_gta8wifi-eng; mka -j6 recoveryimage
 
 # Disable File Based Encryption (FBE) after installing TWRP.
-    $ Boot TWRP; format DATA partition; start TWRP SHELL; execute: multidisabler.
+    Boot TWRP; format DATA partition; start TWRP SHELL; execute: multidisabler.
 Your DATA partition will be secured against re-encryption.
