@@ -1,0 +1,31 @@
+# Android fstab file. For Non-A/B Feature.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+# <src>                                         <mnt_point>  <type>  <mnt_flags and options>             <fs_mgr_flags>
+
+
+system /system ext4 ro,barrier=1 avb=vbmeta_system,wait,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
+system_ext /system_ext ext4 ro,barrier=1 wait,logical,first_stage_mount
+vendor /vendor ext4 ro,barrier=1 avb,wait,logical,first_stage_mount
+product /product ext4 ro,barrier=1 avb,wait,logical,first_stage_mount
+/dev/block/by-name/userdata	/data	f2fs	noatime,nosuid,nodev,discard,usrquota,grpquota,fsync_mode=nobarrier,reserve_root=32768,resgid=5678,inlinecrypt	latemount,wait,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,check,reservedsize=128M,checkpoint=fs,,quota
+/dev/block/by-name/metadata	/metadata	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic,sync	wait,formattable,first_stage_mount,check
+/dev/block/by-name/prodnv	/mnt/vendor	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check
+/dev/block/by-name/cache	/cache	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check
+# Should after mount prodnv for prodnv wholly occupying /mnt/vendor
+/dev/block/by-name/socko /mnt/vendor/socko ext4 ro,noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait,avb=socko
+/dev/block/by-name/odmko /mnt/vendor/odmko ext4 ro,noatime,nosuid,nodev,nomblk_io_submit,noauto_da_alloc wait,avb=odmko
+/dev/block/by-name/misc	/misc	emmc	defaults	defaults,first_stage_mount
+#/dev/block/memdisk.0    /system      ext4 rw,barrier=1                          wait
+#/dev/block/memdisk.1    /data        ext4 noatime,nosuid,nodev,noauto_da_alloc,journal_async_commit,errors=panic wait
+#TAB A8 code for AX6300DEV-398 by zhaoxiangxiang at 2021/09/16 start
+/dev/block/by-name/sec_efs	/efs	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check
+/dev/block/by-name/vendor_efs	/mnt/vendor/efs	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check
+/dev/block/by-name/persist	/mnt/vendor/persist	ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic	wait,check
+#TAB A8 code for AX6300DEV-398 by zhaoxiangxiang at 2021/09/16 end
+/dev/block/by-name/prism     /prism    ext4 ro,barrier=1,discard    avb,nofail,first_stage_mount
+/dev/block/by-name/optics     /optics    ext4 ro,barrier=1,discard    avb,nofail,first_stage_mount
+
+# VOLD:n-ab_fstab
+/devices/platform/soc/soc:ap-apb/71100000.sdio/mmc_host/mmc1/mmc1:*/block/mmcblk1      auto         vfat defaults  voldmanaged=sdcard:auto
+/devices/platform/soc/soc:aon/5fff0000.usb/musb-hdrc.*.auto/usb*                       auto         vfat defaults voldmanaged=usb:auto
